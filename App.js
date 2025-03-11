@@ -83,9 +83,9 @@ function MainAppStack() {
 }
 
 function Navigation() {
-  const { loading, currentUser } = useContext(AppContext);
+  const { loading } = useContext(AppContext);
 
-  if (loading || !currentUser) {
+  if (loading) {
     return (
       <>
         <View style={[styles.loadingContainer]}>

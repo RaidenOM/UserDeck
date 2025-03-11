@@ -1,6 +1,6 @@
 import { useContext, useLayoutEffect } from "react";
 import { AppContext } from "../store/app-context";
-import { Image, ScrollView, StyleSheet, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { format } from "date-fns";
 import Seperator from "../components/Seperator";
@@ -9,6 +9,24 @@ import { LinearGradient } from "expo-linear-gradient";
 export default function UserDetails() {
   const { currentUser } = useContext(AppContext);
   const navigation = useNavigation();
+
+  if (!currentUser) {
+    return (
+      <LinearGradient
+        style={[
+          styles.container,
+          { justifyContent: "center", alignItems: "center" },
+        ]}
+        colors={[
+          "rgba(215, 236, 250, 1)",
+          "rgba(239, 239, 255, 1)",
+          "rgba(255, 235, 253, 1)",
+        ]}
+      >
+        <Text>An Error Occured</Text>
+      </LinearGradient>
+    );
+  }
 
   const formattedBirthDay = format(
     new Date(currentUser.date_of_birth),
