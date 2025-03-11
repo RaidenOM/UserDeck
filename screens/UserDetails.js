@@ -4,6 +4,7 @@ import { Image, ScrollView, StyleSheet, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { format } from "date-fns";
 import Seperator from "../components/Seperator";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function UserDetails() {
   const { currentUser } = useContext(AppContext);
@@ -77,7 +78,14 @@ export default function UserDetails() {
   };
 
   return (
-    <View style={styles.container}>
+    <LinearGradient
+      style={styles.container}
+      colors={[
+        "rgba(215, 236, 250, 1)",
+        "rgba(239, 239, 255, 1)",
+        "rgba(255, 235, 253, 1)",
+      ]}
+    >
       <View style={styles.avatarContainer}>
         <Image source={{ uri: currentUser.avatar }} style={styles.avatar} />
       </View>
@@ -100,7 +108,7 @@ export default function UserDetails() {
           key={"subscription"}
         />
       </ScrollView>
-    </View>
+    </LinearGradient>
   );
 }
 
