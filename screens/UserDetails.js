@@ -24,6 +24,8 @@ export default function UserDetails() {
 
   const data = {
     general: [
+      { fieldName: "ID", value: currentUser.id },
+      { fieldName: "UID", value: currentUser.uid },
       { fieldName: "First Name", value: currentUser.first_name },
       { fieldName: "Last Name", value: currentUser.last_name },
       { fieldName: "Username", value: currentUser.username },

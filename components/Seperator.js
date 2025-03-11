@@ -29,7 +29,6 @@ export default function Seperator({ category, data }) {
             key={`${category}-${d.fieldName}`}
           />
         ))}
-      <View style={styles.hr}></View>
     </>
   );
 }
@@ -43,11 +42,5 @@ const styles = StyleSheet.create({
   },
   seperatorText: {
     color: "#686869",
-  },
-  hr: {
-    width: "100%",
-    height: 1,
-    backgroundColor: "#ccc",
-    marginTop: 20,
   },
 });
